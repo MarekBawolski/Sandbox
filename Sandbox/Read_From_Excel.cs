@@ -14,7 +14,7 @@ namespace Sandbox
         public static void getExcelFile(string path)
         {
 
-            //Create COM Objects. Create a COM object for everything that is referenced
+            //Create COM Objects. Create a COM object for everything that is referencedddd
             Excel.Application xlApp = new Excel.Application();
             Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(path);
             Excel._Worksheet xlWorksheet = xlWorkbook.Sheets[1];
