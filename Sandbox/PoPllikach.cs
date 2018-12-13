@@ -9,23 +9,30 @@ namespace Sandbox
 {
     class PoPllikach
     {
-        private string[] dir;
         private List<String> pliki;
-
+        private List<string> ext;
+        private string sciezka;
 
         public PoPllikach()
         {
-            this.dir =  Directory.GetFiles(@"C:\Users\Marek\Downloads\excel\input");
             this.pliki = new List<string>();
+            this.ext = new List<string> { ".xls", ".xlsx" };
+            this.sciezka = @"C:\Users\Marek\Downloads\excel\input";
+
 
         }
 
-        public List<string> printFiles() {
-            foreach (string path in dir)
+        public List<string> printFiles()
+        {
+
+            var excelFiles = Directory.EnumerateFiles(sciezka, "*.xls", SearchOption.AllDirectories);
+            foreach (string excel in excelFiles)
             {
-                this.pliki.Add(path);
+                this.pliki.Add(excel);
             }
             return pliki;
+
         }
+
     }
 }
